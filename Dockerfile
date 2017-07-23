@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:edge
 
 MAINTAINER Daniel Langemann <daniel.langemann@gmx.de>
 
