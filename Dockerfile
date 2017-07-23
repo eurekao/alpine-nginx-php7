@@ -41,6 +41,10 @@ RUN curl https://getcomposer.org/composer.phar > /usr/local/bin/composer && chmo
 # Copy configuration
 COPY etc/ /etc
 
+# fix iconv error
+RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing gnu-libiconv
+ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
+
 RUN chmod +x /etc/docker-entrypoint.sh
 
 # Copy project files to nginx webroot
